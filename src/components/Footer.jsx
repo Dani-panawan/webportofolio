@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex gap-7">
             <a href="#beranda">Beranda</a>
             <a href="#tentang">Tentang</a>
-            <a href="#proyek">Proyek</a>
+            <a href="#proyek">Project</a>
           
         </div>
         <div className="flex items-center gap-4">

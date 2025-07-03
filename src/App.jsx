@@ -240,34 +240,37 @@ function App() {
 
       {/* DataBase Section */}
       <div className="database mt-32 py-10" id='database'>
-        <div className='tools mt-32'>
+        <div className='tools mt-32 '>
           <h1 className='text-4xl/snug font-bold mb-4'>Data Base Pengunjung Website</h1>
           <p className='xl:w-2/5 lg:w-2/4 md:w-2/3 sm:w-3/4 w-full text-base/loose opacity-50'>
             Halo guys, terimakasih sudah mau berkunjung ke website saya. Silahkan kalau berkenan bisa bantu isi data diri anda dan masukan komentar buat website ya...
           </p>
         </div>
+        <div className="mt-3 py-10" id=''></div>
 
-       <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white py-12 px-6">
+
+       <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white py-12 p-3 rounded-2xl shadow-lg space-y-2 mb-5">
   <div className="max-w-4xl mx-auto">
     <h1 className="text-4xl font-bold text-center text-indigo-600 dark:text-indigo-400 mb-10">
       📊 Data Pengunjung Website
     </h1>
 
     {/* Form */}
-    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg space-y-6 mb-12">
+    <form onSubmit={handleSubmit} className="bg-violet-300 dark:bg-white-800 p-8 rounded-2xl shadow-lg space-y-6 mb-12">
       <div className="grid sm:grid-cols-2 gap-4">
-        <input className="input-style" placeholder="Nama" value={form.nama}
+        <input className="input-style bg-zinc-200 p-3 rounded-2xl shadow-lg space-y-2 mb-5" placeholder="Nama" value={form.nama}
           onChange={(e) => setForm({ ...form, nama: e.target.value })} required />
-        <input className="input-style" type="email" placeholder="Email" value={form.email}
+        <input className="input-style bg-zinc-200 p-3 rounded-2xl shadow-lg space-y-2 mb-5" type="email" placeholder="Email" value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })} required />
-        <input className="input-style" placeholder="Alamat" value={form.alamat}
+        <input className="input-style bg-zinc-200 p-3 rounded-2xl shadow-lg space-y-2 mb-5" placeholder="Alamat" value={form.alamat}
           onChange={(e) => setForm({ ...form, alamat: e.target.value })} required />
-        <input className="input-style" placeholder="NIM Mahasiswa" value={form.nim}
+        <input className="input-style bg-zinc-200 p-3 rounded-2xl shadow-lg space-y-2 mb-5" placeholder="NIM Mahasiswa" value={form.nim}
           onChange={(e) => setForm({ ...form, nim: e.target.value })} required />
-        <input className="input-style sm:col-span-2" placeholder="Program Studi" value={form.prodi}
-          onChange={(e) => setForm({ ...form, prodi: e.target.value })} required />
-        <textarea className="input-style sm:col-span-2" placeholder="Komentar" rows="4" value={form.komentar}
+          <textarea className="input-style bg-zinc-200 p-3 rounded-2xl shadow-lg space-y-2 mb-5" placeholder="Komentar" rows="4" value={form.komentar}
           onChange={(e) => setForm({ ...form, komentar: e.target.value })} required />
+        <input className="input-style bg-zinc-200 p-3 rounded-2xl shadow-lg space-y-10 mb-32" placeholder="Program Studi" value={form.prodi}
+          onChange={(e) => setForm({ ...form, prodi: e.target.value })} required />
+        
       </div>
       <div className="text-center">
         <button
