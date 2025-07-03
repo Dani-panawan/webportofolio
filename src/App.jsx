@@ -247,73 +247,88 @@ function App() {
           </p>
         </div>
 
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white p-6">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl font-bold text-center mb-6 text-blue-600 dark:text-blue-400">
-              Data Pengunjung Website
-            </h1>
+       <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white py-12 px-6">
+  <div className="max-w-4xl mx-auto">
+    <h1 className="text-4xl font-bold text-center text-indigo-600 dark:text-indigo-400 mb-10">
+      📊 Data Pengunjung Website
+    </h1>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 p-6 rounded shadow space-y-4 mb-8">
-              <input className="w-full p-2 rounded border" placeholder="Nama" value={form.nama}
-                onChange={(e) => setForm({ ...form, nama: e.target.value })} required />
-              <input className="w-full p-2 rounded border" type="email" placeholder="Email" value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })} required />
-              <input className="w-full p-2 rounded border" placeholder="Alamat" value={form.alamat}
-                onChange={(e) => setForm({ ...form, alamat: e.target.value })} required />
-              <input className="w-full p-2 rounded border" placeholder="NIM Mahasiswa" value={form.nim}
-                onChange={(e) => setForm({ ...form, nim: e.target.value })} required />
-              <input className="w-full p-2 rounded border" placeholder="Program Studi" value={form.prodi}
-                onChange={(e) => setForm({ ...form, prodi: e.target.value })} required />
-              <textarea className="w-full p-2 rounded border" placeholder="Komentar" value={form.komentar}
-                onChange={(e) => setForm({ ...form, komentar: e.target.value })} required />
-              <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-                {editId ? 'Update Data' : 'Tambah Data'}
-              </button>
-            </form>
-
-            {/* Tabel Data */}
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white dark:bg-gray-800 rounded shadow">
-                <thead>
-                  <tr className="bg-gray-200 dark:bg-gray-700">
-                    <th className="p-2 text-left">Nama</th>
-                    <th className="p-2 text-left">Email</th>
-                    <th className="p-2 text-left">Alamat</th>
-                    <th className="p-2 text-left">NIM</th>
-                    <th className="p-2 text-left">Prodi</th>
-                    <th className="p-2 text-left">Komentar</th>
-                    <th className="p-2 text-center">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {users.map((user) => (
-                    <tr key={user.id} className="border-t">
-                      <td className="p-2">{user.nama}</td>
-                      <td className="p-2">{user.email}</td>
-                      <td className="p-2">{user.alamat}</td>
-                      <td className="p-2">{user.nim}</td>
-                      <td className="p-2">{user.prodi}</td>
-                      <td className="p-2">{user.komentar}</td>
-                      <td className="p-2 text-center space-x-2">
-                        <button onClick={() => handleEdit(user)} className="text-yellow-600 hover:underline">Edit</button>
-                        <button onClick={() => handleDelete(user.id)} className="text-red-600 hover:underline">Hapus</button>
-                      </td>
-                    </tr>
-                  ))}
-                  {users.length === 0 && (
-                    <tr>
-                      <td colSpan="7" className="p-4 text-center text-gray-500">
-                        Belum ada data.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+    {/* Form */}
+    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg space-y-6 mb-12">
+      <div className="grid sm:grid-cols-2 gap-4">
+        <input className="input-style" placeholder="Nama" value={form.nama}
+          onChange={(e) => setForm({ ...form, nama: e.target.value })} required />
+        <input className="input-style" type="email" placeholder="Email" value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })} required />
+        <input className="input-style" placeholder="Alamat" value={form.alamat}
+          onChange={(e) => setForm({ ...form, alamat: e.target.value })} required />
+        <input className="input-style" placeholder="NIM Mahasiswa" value={form.nim}
+          onChange={(e) => setForm({ ...form, nim: e.target.value })} required />
+        <input className="input-style sm:col-span-2" placeholder="Program Studi" value={form.prodi}
+          onChange={(e) => setForm({ ...form, prodi: e.target.value })} required />
+        <textarea className="input-style sm:col-span-2" placeholder="Komentar" rows="4" value={form.komentar}
+          onChange={(e) => setForm({ ...form, komentar: e.target.value })} required />
       </div>
+      <div className="text-center">
+        <button
+          type="submit"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-semibold transition"
+        >
+          {editId ? '🔄 Update Data' : '➕ Tambah Data'}
+        </button>
+      </div>
+    </form>
+
+    {/* Tabel */}
+    <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+      <table className="w-full table-auto text-sm">
+        <thead className="bg-indigo-600 text-white rounded">
+          <tr>
+            <th className="p-3 text-left">Nama</th>
+            <th className="p-3 text-left">Email</th>
+            <th className="p-3 text-left">Alamat</th>
+            <th className="p-3 text-left">NIM</th>
+            <th className="p-3 text-left">Prodi</th>
+            <th className="p-3 text-left">Komentar</th>
+            <th className="p-3 text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id} className="border-t dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700">
+              <td className="p-2">{user.nama}</td>
+              <td className="p-2">{user.email}</td>
+              <td className="p-2">{user.alamat}</td>
+              <td className="p-2">{user.nim}</td>
+              <td className="p-2">{user.prodi}</td>
+              <td className="p-2">{user.komentar}</td>
+              <td className="p-2 text-center space-x-2">
+                <button
+                  onClick={() => handleEdit(user)}
+                  className="text-yellow-500 hover:underline"
+                  title="Edit"
+                >✏️</button>
+                <button
+                  onClick={() => handleDelete(user.id)}
+                  className="text-red-500 hover:underline"
+                  title="Hapus"
+                >🗑️</button>
+              </td>
+            </tr>
+          ))}
+          {users.length === 0 && (
+            <tr>
+              <td colSpan="7" className="p-4 text-center text-gray-500 dark:text-gray-400">
+                Tidak ada data pengunjung.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
     </>
   );
 }
